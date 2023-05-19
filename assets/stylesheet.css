@@ -48,7 +48,7 @@ ul li label{
 }
 
 button{
-    background-color: green;
+    background-color: blue;
     color: white;
     border: none;
     display: block;
@@ -57,4 +57,13 @@ button{
     font-size: 1.1rem;
     font-family: inherit;
     padding: 1.3rem;
+}
+
+button:hover{
+    background-color: green;
+}
+
+button:focus{
+    outline: none;
+    background-color: green;
 }
