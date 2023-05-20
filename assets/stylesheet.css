@@ -60,10 +60,10 @@ button{
 }
 
 button:hover{
-    background-color: green;
+    background-color: rgb(43, 203, 43);
 }
 
 button:focus{
     outline: none;
-    background-color: green;
+    background-color: rgb(43, 203, 43);
 }

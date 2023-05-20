@@ -118,10 +118,25 @@ console.log(startBtn);
 startBtn.addEventListener("click", startGame);
 
 // function to start the game and timer
-
-
+function startGame() {
+    startBtn.style.display = "none";
+    loadQuiz(); //calling the loadQuiz function
+    // start the quiz timer
+    var timeLeft = setInterval(function () {
+        timeLeft --;
+        timerEL.textContent = "Time: " + timeLeft;
+        if (timeleft <= 0){
+            clearInterval(timeLeft);
+            // alert user time is up
+            alert("Time is up!");
+            endGame(); // calling the endGame function
+        }
+    }, 1000);
+}
 
 // function to end the game 
+
+
 
 
 // submit button event listener
