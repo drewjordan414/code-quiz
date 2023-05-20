@@ -24,5 +24,7 @@ THEN I can save my initials and score
 ## Borrowed Code
 1. Reset CSS
     - https://github.com/elad2412/the-new-css-reset/tree/main
+2. Inspiration and the framework
+    -  https://www.youtube.com/watch?v=CqddbIrEM5I
 
 ## Deployed Application
