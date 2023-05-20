@@ -76,7 +76,7 @@ console.log(d_text);
 const submitBtn = document.getElementById("submit");
 
 // scores
-let cureentQuiz = 0;
+let currentQuiz = 0;
 let score = 0;
 
 loadQuiz();
@@ -84,7 +84,7 @@ loadQuiz();
 // loadQuiz function
 function loadQuiz() {
     deselectAnswers();
-    var currentQuizData = quizData[cureentQuiz];
+    var currentQuizData = quizData[currentQuiz];
     questionEl.innerText = currentQuizData.question;
     a_text.innerText = currentQuizData.a;
     b_text.innerText = currentQuizData.b;
