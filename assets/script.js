@@ -57,20 +57,20 @@ const quizData = [
 ];
 
 // connecting the html elements to the javascript
-var quiz = document.getElementById("quiz");
-var answerEls = document.querySelectorAll(".answer");
-var questionEl = document.getElementById("question");
+const quiz = document.getElementById("quiz");
+const answerEls = document.querySelectorAll(".answer");
+const questionEl = document.getElementById("question");
 
 // text for the answers
-var a_text = document.getElementById("a_text");
+const a_text = document.getElementById("a_text");
 console.log(a_text);
-var b_text = document.getElementById("b_text");
+const b_text = document.getElementById("b_text");
 console.log(b_text);
-var c_text = document.getElementById("c_text");
+const c_text = document.getElementById("c_text");
 console.log(c_text);
-var d_text = document.getElementById("d_text");
+const d_text = document.getElementById("d_text");
 console.log(d_text);
-var submitBtn = document.getElementById("submit");
+const submitBtn = document.getElementById("submit");
 
 // scores
 let cureentQuiz = 0;
@@ -89,3 +89,37 @@ function loadQuiz() {
     d_text.innerText = currentQuizData.d;
 }
 
+// deselectAnswers function
+function deselectAnswers() {
+    // loop through the answer elements
+    answerEls.forEach((answerEl) => (answerEls.checked = false)); //answerEl might need to be answerEls
+    console.log(answerEls);
+}
+
+function getSelected() {
+    let answerEls
+    answerEls.forEach((answerEl) => {
+        if (answerEl.checked) {
+            answer = answerEl.id;
+        }
+    });
+    return answer;
+}
+
+// submit button event listener
+submitBtn.addEventListener("click", () => {
+    // check to see the answer
+    var answer = getSelected();
+    console.log(answer);
+    if (answer) {
+        if (answer === quizData[cureentQuiz].correct) {
+            score++;
+        }
+        cureentQuiz++;
+        if (cureentQuiz < quizData.length) {
+            loadQuiz();
+        } else {
+            quiz.innerHTML = `<h2>You answered correctly at ${score}/${quizData.length} questions.</h2>`;
+        }
+    }
+});
