@@ -1,5 +1,6 @@
 // quiz questions and answers ---> add however many questions within const quizData
 const quizData = [
+    // setting up an array of objects
     // question 1
     {
         question: "this is test question 1",
@@ -152,11 +153,29 @@ function endGame() {
     inputEL.placeholder = "Enter your initials";
     submitEL.textContent = "Submit";
 
-    // save the score to local storage
-    console.log("Game Over! Youre score is: " + score);
+    formEL.appendChild(inputEL);
+    formEL.appendChild(submitEL);
+    document.body.appendChild(formEL);
+
+    // event listener for the submit button
+    formEL.addEventListener("submit", function(event) {
+        event.preventDefault();
+        var initials = document.getElementById("initials").value;
+        var highScore = JSON.parse(localStorage.getItem("highScore")) || [];
+        highScore.push({initials: initials, score: score});
+
+        // sort the high scores and names
+        highScore.sort(function(a, b) {return b.score - a.score;});
+        highScore = highScore.slice(0, 5);
+        
+        // save the high scores to local storage
+        localStorage.setItem("highScore", JSON.stringify(highScore));
+        // redirect to the high scores page
+        // window.location.href = "highscores.html"; // this file is not created yet
+        // reload the page
+        location.reload();
+    });
 }
-
-
 
 // submit button event listener
 submitBtn.addEventListener("click", () => {
