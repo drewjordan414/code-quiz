@@ -18,10 +18,11 @@ body{
     display: flex;
     flex-direction:column;
     align-items: center;
+    margin-top: 2rem;
 }
 
 #timer{
-    font-size: 2em; /* try to 2rem if em doesnt work*/
+    font-size: 2rem; 
     margin-bottom: 20px;
 }
 
