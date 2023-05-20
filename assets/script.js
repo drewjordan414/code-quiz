@@ -165,6 +165,25 @@ function endGame(){
     document.body.appendChild(scoreEl);
 
     // event listener for the submit button
+    scoreEl.addEventListener("submit", function(event){
+        event.preventDefault();
+        var initials = document.getElementById("initials").value;
+        var highScore = JSON.parse(localStorage.getItem("highScore")) || [];
+        highScore.push({initials: initials, score: score});
+
+        // sort the high scores and names
+        highScore.sort(function(a, b){return b.score - a.score});
+        highScore = highScore.slice(0, 5);
+        // local storage
+        localStorage.setItem("highScore", JSON.stringify(highScore));
+
+        // display the high scores
+
+        // reload the page
+        location.reload();
+
+
+    });
 
 };
 
