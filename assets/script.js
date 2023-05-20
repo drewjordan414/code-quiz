@@ -65,6 +65,26 @@ console.log(answerEls);
 const questionEl = document.getElementById("question");
 console.log(questionEl);
 
+// timer
+let timeEl = document.querySelector(".time");
+let secondsLeft = 60;
+
+// set time function
+function setTime() {
+    let timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = "Time:${secondsLeft}";
+        
+        // if statement to stop the timer
+        if (secondsLeft<= 0 || currentQuiz === quizData.length) {
+            clearInterval(timerInterval);
+            endGame();
+        }
+
+    }, 1000);
+};
+
+
 // text for the answers
 const a_text = document.getElementById("a_text");
 console.log(a_text);
