@@ -146,46 +146,27 @@ function startGame(){
 };
 
 // function to end the game 
-function endGame() {
-    // hide the quiz container
+function endGame(){
     document.getElementById("quiz").style.display = "none";
-    // display the final score
-    var scoreEL = document.createElement("h2");
-    scoreEL.textContent = "Your final score is: " + score;
-    document.body.appendChild(scoreEL);
-    // show a form to save the players initials and score
-    var formEL = document.createElement("form");
-    var inputEL = document.createElement("input");
-    var submitEL = document.createElement("button");
+    var scoreEl = document.getElementById("score");
+    scoreEl.textContent = "Your final score is: " + score;
+    document.body.appendChild(scoreEl);
 
-    formEL.id = "score-form";
-    inputEL.id = "initials";
-    inputEL.placeholder = "Enter your initials";
-    submitEL.textContent = "Submit";
-
-    formEL.appendChild(inputEL);
-    formEL.appendChild(submitEL);
-    document.body.appendChild(formEL);
+    // form to save the players initials and score
+    var scoreEl = document.createElement("form");
+    var initialsEl = document.createElement("input");
+    var submitEl = document.createElement("button");
+    scoreEl.id = "score-form";
+    initialsEl.id = "initials";
+    initialsEl.placeholder = "Enter your initials";
+    submitEl.id = "submit-score";
+    scoreEl.appendChild(initialsEl);
+    scoreEl.appendChild(submitEl);
+    document.body.appendChild(scoreEl);
 
     // event listener for the submit button
-    formEL.addEventListener("submit", function(event) {
-        event.preventDefault();
-        var initials = document.getElementById("initials").value;
-        var highScore = JSON.parse(localStorage.getItem("highScore")) || [];
-        highScore.push({initials: initials, score: score});
 
-        // sort the high scores and names
-        highScore.sort(function(a, b) {return b.score - a.score;});
-        highScore = highScore.slice(0, 5);
-        
-        // save the high scores to local storage
-        localStorage.setItem("highScore", JSON.stringify(highScore));
-        // redirect to the high scores page
-        // window.location.href = "highscores.html"; // this file is not created yet
-        // reload the page
-        location.reload();
-    });
-}
+};
 
 // submit button event listener
 submitBtn.addEventListener("click", () => {
