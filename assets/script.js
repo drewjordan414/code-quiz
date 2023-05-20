@@ -1,6 +1,7 @@
 // quiz questions and answers ---> add however many questions within const quizData
 const quizData = [
     // setting up an array of objects
+    // each object contains a string for the question, 4 strings for the answers, and a string for the correct answer
     // question 1
     {
         question: "this is test question 1",
@@ -71,12 +72,13 @@ let secondsLeft = 60;
 
 // set time function
 function setTime() {
-    let timerInterval = setInterval(function() {
+    let timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time:${secondsLeft}";
-        
+        alert("Time:${secondsLeft}");
+        console.log(secondsLeft);
         // if statement to stop the timer
-        if (secondsLeft<= 0 || currentQuiz === quizData.length) {
+        if (secondsLeft <= 0 || currentQuiz === quizData.length) {
             clearInterval(timerInterval);
             endGame();
         }
@@ -139,14 +141,14 @@ console.log(startBtn);
 startBtn.addEventListener("click", startGame);
 
 // function to start the game and timer
-function startGame(){
+function startGame() {
     startBtn.stlye.display = "none";
     loadQuiz();
     setTime();
 };
 
 // function to end the game 
-function endGame(){
+function endGame() {
     document.getElementById("quiz").style.display = "none";
     var scoreEl = document.getElementById("score");
     scoreEl.textContent = "Your final score is: " + score;
@@ -165,42 +167,44 @@ function endGame(){
     document.body.appendChild(scoreEl);
 
     // event listener for the submit button
-    scoreEl.addEventListener("submit", function(event){
+    scoreEl.addEventListener("submit", function (event) {
         event.preventDefault();
         var initials = document.getElementById("initials").value;
         var highScore = JSON.parse(localStorage.getItem("highScore")) || [];
-        highScore.push({initials: initials, score: score});
+        highScore.push({ initials: initials, score: score });
 
         // sort the high scores and names
-        highScore.sort(function(a, b){return b.score - a.score});
+        highScore.sort(function (a, b) { return b.score - a.score });
         highScore = highScore.slice(0, 5);
         // local storage
         localStorage.setItem("highScore", JSON.stringify(highScore));
 
         // display the high scores
-
+        highScore.forEach(score => {
+            let li = dpcument.createElement("li");
+            li.textContent = score.initials + " - " + score.score;
+            console.log(li);
+            scoreListEl.appendChild(li);
+        });
         // reload the page
         location.reload();
-
-
     });
-
 };
 
 // submit button event listener
 submitBtn.addEventListener("click", () => {
     const answer = getSelected();
-    if(answer){
-        if(answer === quizData[currentQuiz].correct){
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
             score++;
-        }else{
+        } else {
             secondsLeft = secondsLeft - 10;
         }
         currentQuiz++;
 
-        if(currentQuiz < quizData.length){
+        if (currentQuiz < quizData.length) {
             loadQuiz();
-        } else{
+        } else {
             endGame();
         }
     }

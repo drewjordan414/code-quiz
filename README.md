@@ -27,6 +27,7 @@ THEN I can save my initials and score
     - https://github.com/elad2412/the-new-css-reset/tree/main
 2. Inspiration and the framework
     -  https://www.youtube.com/watch?v=CqddbIrEM5I
+        - This video was a great help in getting started. I used the video as a starting point to help visualize the project as well as better undertsand the relationship between the array and objects created inside the array.
 
 ## Deployed Application
 https://drewjordan414.github.io/code-quiz/
