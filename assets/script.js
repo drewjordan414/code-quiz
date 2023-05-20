@@ -135,7 +135,26 @@ function startGame() {
 }
 
 // function to end the game 
+function endGame() {
+    // hide the quiz container
+    document.getElementById("quiz").style.display = "none";
+    // display the final score
+    var scoreEL = document.createElement("h2");
+    scoreEL.textContent = "Your final score is: " + score;
+    document.body.appendChild(scoreEL);
+    // show a form to save the players initials and score
+    var formEL = document.createElement("form");
+    var inputEL = document.createElement("input");
+    var submitEL = document.createElement("button");
 
+    formEL.id = "score-form";
+    inputEL.id = "initials";
+    inputEL.placeholder = "Enter your initials";
+    submitEL.textContent = "Submit";
+
+    // save the score to local storage
+    console.log("Game Over! Youre score is: " + score);
+}
 
 
 
