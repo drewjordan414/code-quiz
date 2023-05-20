@@ -19,7 +19,8 @@ THEN I can save my initials and score
 
 
 ## Description
-
+- For the questions, I used an array of objects. Each object has a question, an array of answers, and the index of the correct answer.
+- The timer is set to 60 seconds. Each wrong answer subtracts 10 seconds from the timer.
 
 ## Borrowed Code
 1. Reset CSS

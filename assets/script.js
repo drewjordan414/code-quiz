@@ -27,7 +27,7 @@ const quizData = [
         d: "test answer 4",
         correct: "c",
     },
-    // question 4
+    // question 4 created as an object
     {
         question: "this is test question 4",
         a: "test answer 1",
@@ -108,6 +108,21 @@ function getSelected() {
     });
     return answer;
 }
+
+const timerEL = document.getElementById("timer");
+console.log(timerEL);
+const startBtn = document.getElementById("start");
+console.log(startBtn);
+
+// event listener for the start button
+startBtn.addEventListener("click", startGame);
+
+// function to start the game and timer
+
+
+
+// function to end the game 
+
 
 // submit button event listener
 submitBtn.addEventListener("click", () => {
