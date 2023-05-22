@@ -60,13 +60,27 @@ const quizData = [
         correct: "b",
     },
 ];
+
+// randomize the questions using Knuth shuffle algorithim 
+function shuffle(quizData){
+    var currentIndex = quizData.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex){
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = quizData[currentIndex];
+        quizData[currentIndex] = quizData[randomIndex];
+        quizData[randomIndex] = temporaryValue;
+    }
+    return quizData;
+}
+
 // connecting the html elements to the javascript
 const quiz = document.getElementById("quiz");
 const answerEls = document.querySelectorAll(".answer");
 const questionEl = document.getElementById("question");
 
 // timer
-timeEl.textContent = `Time:${secondsLeft}`;
+timeEl.textContent = `Time: ${secondsLeft}`;
 // alert(`Time:${secondsLeft}`);
 
 //----------------------------------------------------------------------------------------//
