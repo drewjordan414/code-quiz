@@ -1,4 +1,7 @@
 // quiz questions and answers ---> add however many questions within const quizData
+let secondsLeft = 60;
+const timeEL = document.getElementById("timer");
+
 const quizData = [
     // setting up an array of objects
     // each object contains a string for the question, 4 strings for the answers, and a string for the correct answer
