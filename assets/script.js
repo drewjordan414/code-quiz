@@ -57,7 +57,7 @@ const quizData = [
         correct: "b",
     },
 ];
-
+//----------------------------------------------------------------------------------------//
 // connecting the html elements to the javascript
 const quiz = document.getElementById("quiz");
 console.log(quiz);
@@ -67,15 +67,16 @@ const questionEl = document.getElementById("question");
 console.log(questionEl);
 
 // timer
-let timeEl = document.querySelector(".time");
-let secondsLeft = 60;
+timeEl.textContent = `Time:${secondsLeft}`;
+alert(`Time:${secondsLeft}`);
 
+//----------------------------------------------------------------------------------------//
 // set time function
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
-        timeEl.textContent = "Time:${secondsLeft}";
-        alert("Time:${secondsLeft}");
+        timeEl.textContent = `Time:${secondsLeft}`;
+        alert(`Time:${secondsLeft}`);
         console.log(secondsLeft);
         // if statement to stop the timer
         if (secondsLeft <= 0 || currentQuiz === quizData.length) {
@@ -86,16 +87,12 @@ function setTime() {
     }, 1000);
 };
 
-
+//----------------------------------------------------------------------------------------//
 // text for the answers
 const a_text = document.getElementById("a_text");
-console.log(a_text);
 const b_text = document.getElementById("b_text");
-console.log(b_text);
 const c_text = document.getElementById("c_text");
-console.log(c_text);
 const d_text = document.getElementById("d_text");
-console.log(d_text);
 const submitBtn = document.getElementById("submit");
 
 // scores
@@ -103,7 +100,7 @@ let currentQuiz = 0;
 let score = 0;
 
 loadQuiz();
-
+//----------------------------------------------------------------------------------------//
 // loadQuiz function
 function loadQuiz() {
     deselectAnswers();
@@ -144,9 +141,10 @@ startBtn.addEventListener("click", startGame);
 function startGame() {
     startBtn.stlye.display = "none";
     loadQuiz();
-    setTime();
+    // setTime();
 };
 
+//----------------------------------------------------------------------------------------//
 // function to end the game 
 function endGame() {
     document.getElementById("quiz").style.display = "none";
