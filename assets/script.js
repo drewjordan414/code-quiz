@@ -1,6 +1,6 @@
 // quiz questions and answers ---> add however many questions within const quizData
 let secondsLeft = 60;
-const timeEL = document.getElementById("timer");
+const timeEl = document.getElementById("timer");
 
 const quizData = [
     // setting up an array of objects
@@ -67,7 +67,7 @@ const questionEl = document.getElementById("question");
 
 // timer
 timeEl.textContent = `Time:${secondsLeft}`;
-alert(`Time:${secondsLeft}`);
+// alert(`Time:${secondsLeft}`);
 
 //----------------------------------------------------------------------------------------//
 // set time function
@@ -75,7 +75,7 @@ function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = `Time:${secondsLeft}`;
-        alert(`Time:${secondsLeft}`);
+        // alert(`Time:${secondsLeft}`);
         console.log(secondsLeft);
         // if statement to stop the timer
         if (secondsLeft <= 0 || currentQuiz === quizData.length) {
@@ -176,7 +176,7 @@ function endGame() {
 
         // display the high scores
         highScore.forEach(score => {
-            let li = dpcument.createElement("li");
+            let li = document.createElement("li");
             li.textContent = score.initials + " - " + score.score;
             console.log(li);
             scoreListEl.appendChild(li);
