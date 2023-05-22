@@ -80,3 +80,47 @@ button:focus{
     outline: none;
     background-color: rgb(43, 203, 43);
 }
+
+#score{
+    margin: 2rem;
+    font-size: 2rem;
+}
+
+#score-form{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#initials{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#submit-score{
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#submit-score:hover{
+    background-color: rgb(43, 203, 43);
+}
+
+#score-list{
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+}
+
+#score-list li{
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}

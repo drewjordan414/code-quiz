@@ -1,6 +1,7 @@
 // quiz questions and answers ---> add however many questions within const quizData
 let secondsLeft = 60;
 const timeEl = document.getElementById("timer");
+let timerInterval;
 
 const quizData = [
     // setting up an array of objects
@@ -88,7 +89,7 @@ timeEl.textContent = `Time: ${secondsLeft}`;
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
-        timeEl.textContent = `Time:${secondsLeft}`;
+        timeEl.textContent = `Time: ${secondsLeft}`;
         // alert(`Time:${secondsLeft}`);
         console.log(secondsLeft);
         // if statement to stop the timer
@@ -157,26 +158,35 @@ function startGame() {
 
 
 // function to end the game 
+// function to end the game 
 function endGame() {
     document.getElementById("quiz").style.display = "none";
+
+    // Hide the timer
+    timeEl.style.display = "none";
+
+    // Clear the interval
+    clearInterval(timerInterval);
+
     var scoreEl = document.getElementById("score");
     scoreEl.textContent = "Your final score is: " + score;
     document.body.appendChild(scoreEl);
 
     // form to save the players initials and score
-    var scoreEl = document.createElement("form");
+    var scoreForm = document.createElement("form"); // changed variable name
     var initialsEl = document.createElement("input");
     var submitEl = document.createElement("button");
-    scoreEl.id = "score-form";
+    scoreForm.id = "score-form"; // changed associated ID
     initialsEl.id = "initials";
     initialsEl.placeholder = "Enter your initials";
     submitEl.id = "submit-score";
-    scoreEl.appendChild(initialsEl);
-    scoreEl.appendChild(submitEl);
-    document.body.appendChild(scoreEl);
+    submitEl.textContent = "Submit"; // add some text to the submit button
+    scoreForm.appendChild(initialsEl);
+    scoreForm.appendChild(submitEl);
+    document.body.appendChild(scoreForm);
 
     // event listener for the submit button
-    scoreEl.addEventListener("submit", function (event) {
+    scoreForm.addEventListener("submit", function (event) {
         event.preventDefault();
         var initials = document.getElementById("initials").value;
         var highScore = JSON.parse(localStorage.getItem("highScore")) || [];
@@ -200,6 +210,7 @@ function endGame() {
     });
 };
 
+
 // submit button event listener
 submitBtn.addEventListener("click", () => {
     const answer = getSelected();
@@ -208,6 +219,9 @@ submitBtn.addEventListener("click", () => {
             score++;
         } else {
             secondsLeft = secondsLeft - 10;
+            if (secondsLeft < 0) {
+                secondsLeft = 0;
+            }
         }
         currentQuiz++;
 
