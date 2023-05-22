@@ -81,7 +81,7 @@ button:focus{
     background-color: rgb(43, 203, 43);
 }
 
-#score{
+/* #score{
     margin: 2rem;
     font-size: 2rem;
 }
@@ -123,4 +123,4 @@ button:focus{
 #score-list li{
     font-size: 1.2rem;
     margin: 1rem 0;
-}
+} */

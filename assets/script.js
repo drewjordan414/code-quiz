@@ -87,7 +87,7 @@ timeEl.textContent = `Time: ${secondsLeft}`;
 //----------------------------------------------------------------------------------------//
 // set time function
 function setTime() {
-    let timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = `Time: ${secondsLeft}`;
         // alert(`Time:${secondsLeft}`);
@@ -169,7 +169,7 @@ function endGame() {
     clearInterval(timerInterval);
 
     var scoreEl = document.getElementById("score");
-    scoreEl.textContent = "Your final score is: " + score;
+    scoreEl.textContent = "Your final score is: " + score + " out of " + quizData.length + " correct! ";
     document.body.appendChild(scoreEl);
 
     // form to save the players initials and score
@@ -199,12 +199,13 @@ function endGame() {
         localStorage.setItem("highScore", JSON.stringify(highScore));
 
         // display the high scores
+        let scoreListEl = document.createElement("ol");
         highScore.forEach(score => {
             let li = document.createElement("li");
             li.textContent = score.initials + " - " + score.score;
-            console.log(li);
             scoreListEl.appendChild(li);
         });
+        document.body.appendChild(scoreListEl); //possible fix?? or error could be that too
         // reload the page
         location.reload();
     });
