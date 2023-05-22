@@ -1,5 +1,11 @@
 # code-quiz
 
+# TO DO
+- fix the end game screen and intials
+- add a high score page
+- add final game time to end game screen
+- make sure the high scores are saved to local storage
+
 
 ## Criteria
 
@@ -31,3 +37,5 @@ THEN I can save my initials and score
 
 ## Deployed Application
 https://drewjordan414.github.io/code-quiz/
+
+
