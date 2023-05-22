@@ -5,7 +5,7 @@
 - add a high score page
 - add final game time to end game screen
 - make sure the high scores are saved to local storage
-
+- add "<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>"
 
 ## Criteria
 
@@ -37,5 +37,7 @@ THEN I can save my initials and score
 
 ## Deployed Application
 https://drewjordan414.github.io/code-quiz/
+
+
 
 
