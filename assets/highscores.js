@@ -13,10 +13,10 @@ function highScores() {
     var highScoreEl = document.getElementById("score-list");    
     highScoreEl.innerHTML = ""; //clear the old data
     
-    highScore.array.forEach(element => {
+    highScore.forEach(element => {
         var li = document.createElement("li");
         li.textContent = element.initials + " - " + element.score;
-        scoreList.appendChild(li);
+        highScoreEl.appendChild(li);
     });
 }
 
