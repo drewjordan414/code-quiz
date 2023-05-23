@@ -1,4 +1,22 @@
 // quiz questions and answers ---> add however many questions within const quizData
+function highScores() {
+    // get the high scores from local storage
+    var highScore = JSON.parse(localStorage.getItem("highScore")) || [];
+
+    // create an ordered list to display the high scores
+    let scoreListEl = document.createElement("ol");
+    highScore.forEach(score => {
+        let li = document.createElement("li");
+        li.textContent = score.initials + " - " + score.score;
+        scoreListEl.appendChild(li);
+    });
+
+    // append the high scores to the body
+    document.body.appendChild(scoreListEl);
+}
+
+
+
 let secondsLeft = 60;
 const timeEl = document.getElementById("timer");
 let timerInterval;
@@ -153,6 +171,7 @@ function getSelected() {
 
 
 // function to end the game 
+// function to end the game 
 function endGame() {
     document.getElementById("quiz").style.display = "none";
 
@@ -194,17 +213,13 @@ function endGame() {
         localStorage.setItem("highScore", JSON.stringify(highScore));
 
         // display the high scores
-        let scoreListEl = document.createElement("ol");
-        highScore.forEach(score => {
-            let li = document.createElement("li");
-            li.textContent = score.initials + " - " + score.score;
-            scoreListEl.appendChild(li);
-        });
-        document.body.appendChild(scoreListEl); //possible fix?? or error could be that too
-        // reload the page
-        location.reload();
+        highScores();
+
+        // redirect to highscores.html
+        window.location.href = "high-scores.html";
     });
 };
+
 
 
 // submit button event listener
