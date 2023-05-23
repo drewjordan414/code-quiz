@@ -33,7 +33,7 @@ const quizData = [
         d: "test answer 4",
         correct: "c",
     },
-    // question 4 created as an object
+    // question 4 
     {
         question: "this is test question 4",
         a: "test answer 1",
@@ -62,7 +62,7 @@ const quizData = [
     },
 ];
 
-// randomize the questions using Knuth shuffle algorithim 
+// randomize the questions using Knuth shuffle algorithim // sone reason i need this for it to work??
 function shuffle(quizData){
     var currentIndex = quizData.length, temporaryValue, randomIndex;
     while (0 !== currentIndex){
@@ -84,7 +84,7 @@ const questionEl = document.getElementById("question");
 timeEl.textContent = `Time: ${secondsLeft}`;
 // alert(`Time:${secondsLeft}`);
 
-//----------------------------------------------------------------------------------------//
+
 // set time function
 function setTime() {
     timerInterval = setInterval(function () {
