@@ -113,6 +113,18 @@ const submitBtn = document.getElementById("submit");
 let currentQuiz = 0;
 let score = 0;
 
+// function to start the game and timer
+const start_Btn = document.getElementById("start");
+start_Btn.addEventListener("click", startGame);
+
+function startGame() {
+    start_Btn.style.display = "none";
+    quiz.style.display = "block";
+    shuffle(quizData);
+    loadQuiz();
+    setTime();
+};
+
 
 // loadQuiz function
 function loadQuiz() {
@@ -125,13 +137,12 @@ function loadQuiz() {
     d_text.innerText = currentQuizData.d;
 }
 
-// deselectAnswers function  
 function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false);
 }
 
 function getSelected() {
-    let answer
+    let answer;
     answerEls.forEach((answerEl) => {
         if (answerEl.checked) {
             answer = answerEl.id;
@@ -140,24 +151,7 @@ function getSelected() {
     return answer;
 }
 
-// const timerEL = document.getElementById("timer");
-// console.log(timerEL);
 
-// console.log(startBtn);
-
-// event listener for the start button
-const startBtn = document.getElementById("start");
-startBtn.addEventListener("click", startGame);
-
-// function to start the game and timer
-function startGame() {
-    startBtn.style.display = "none";
-    loadQuiz();
-    setTime();
-};
-
-
-// function to end the game 
 // function to end the game 
 function endGame() {
     document.getElementById("quiz").style.display = "none";
@@ -215,7 +209,7 @@ function endGame() {
 // submit button event listener
 submitBtn.addEventListener("click", () => {
     const answer = getSelected();
-    if (answer) {
+    if(answer) {
         if (answer === quizData[currentQuiz].correct) {
             score++;
         } else {
@@ -225,7 +219,6 @@ submitBtn.addEventListener("click", () => {
             }
         }
         currentQuiz++;
-
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
