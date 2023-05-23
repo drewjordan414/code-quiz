@@ -164,17 +164,17 @@ function endGame() {
 
     var scoreEl = document.createElement('div');
     scoreEl.id = "score";
-    scoreEl.textContent = "Your final score is: " + score + " out of " + quizData.length + " correct! ";
+    scoreEl.textContent = "You Got: " + score + " out of " + quizData.length + " correct! ";
     document.body.appendChild(scoreEl);
 
     // form to save the players initials and score
-    var scoreForm = document.createElement("form"); // changed variable name
+    var scoreForm = document.createElement("form");
+    scoreForm.id = "score-form" // changed variable name
     var initialsEl = document.createElement("input");
-    var submitEl = document.createElement("button");
-    scoreForm.id = "score-form"; // changed associated ID
     initialsEl.id = "initials";
-    initialsEl.placeholder = "Enter your initials";
+    var submitEl = document.createElement("button");
     submitEl.id = "submit-score";
+    initialsEl.placeholder = "Enter your initials";
     submitEl.textContent = "Submit"; // add some text to the submit button
     scoreForm.appendChild(initialsEl);
     scoreForm.appendChild(submitEl);
