@@ -1,12 +1,5 @@
 # code-quiz
 
-# TO DO
-- fix the end game screen and intials
-- add a high score page
-- add final game time to end game screen
-- make sure the high scores are saved to local storage
-- add "<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>"
-
 ## Criteria
 
 ```
@@ -22,7 +15,15 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
-
+## Features
+- The quiz is timed and the user is given 60 seconds to complete the quiz.
+- The user is presented with a question and four possible answers.
+- If the user selects the correct answer, they are presented with another question.
+- If the user selects the wrong answer, 10 seconds are subtracted from the timer.
+- If the timer reaches 0, the game is over.
+- When the game is over, the user can save their initials and score.
+- The user can view their high score at any time.
+- The user can clear their high score at any time.
 
 ## Description
 - For the questions, I used an array of objects. Each object has a question, an array of answers, and the index of the correct answer.
@@ -44,6 +45,11 @@ THEN I can save my initials and score
 ## Deployed Application
 https://drewjordan414.github.io/code-quiz/
 
+
+## Screenshots
+![Screenshot](./assets/images/welcome.png)
+![Screenshot](./assets/images/quiz.png)
+![Screenshot](./assets/images/scores.png)
 
 
 
