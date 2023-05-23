@@ -162,7 +162,8 @@ function endGame() {
     // Clear the interval
     clearInterval(timerInterval);
 
-    var scoreEl = document.getElementById("score");
+    var scoreEl = document.createElement('div');
+    scoreEl.id = "score";
     scoreEl.textContent = "Your final score is: " + score + " out of " + quizData.length + " correct! ";
     document.body.appendChild(scoreEl);
 
